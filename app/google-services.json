@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "367998999608",
+    "project_id": "blinkitapp-14e55",
+    "storage_bucket": "blinkitapp-14e55.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:367998999608:android:fd786db0456b4e2c4fdacd",
+        "android_client_info": {
+          "package_name": "com.example.activity_lifecycle"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6sjgZhL6Mtd452IRaRrJPlDKnpswcN0s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:367998999608:android:47f11cd050fc5cf94fdacd",
+        "android_client_info": {
+          "package_name": "com.gaurav.blinkit_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6sjgZhL6Mtd452IRaRrJPlDKnpswcN0s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:367998999608:android:04d2b6dad34489374fdacd",
+        "android_client_info": {
+          "package_name": "com.gaurav.spofiy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6sjgZhL6Mtd452IRaRrJPlDKnpswcN0s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
