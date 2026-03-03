@@ -2,7 +2,6 @@ package com.gaurav.spofiy.presentation.home
 
 import android.widget.Toast
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -39,7 +38,8 @@ import com.gaurav.spofiy.presentation.navigation.Routes
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SignInScreen(navController: NavController, viewModel: SpotifyViewModel = hiltViewModel()) {
+fun SignInScreen(navController: NavController) {
+  val   viewModel: SpotifyViewModel = hiltViewModel()
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var confirmPassword by remember { mutableStateOf("") }
@@ -47,7 +47,7 @@ fun SignInScreen(navController: NavController, viewModel: SpotifyViewModel = hil
     var isPasswordVisible by remember { mutableStateOf(false) }
     val context = LocalContext.current
 
-    val spotifyGreen = Color(0xFF1DB954)
+    val spotifyGreen = Color(0xFF00C2CB)
     val darkBackground = Color(0xFF121212)
 
     val authState by viewModel.authState.collectAsState()
@@ -241,7 +241,7 @@ fun SignInScreen(navController: NavController, viewModel: SpotifyViewModel = hil
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun SignInPreview() {
     val navController = rememberNavController()
