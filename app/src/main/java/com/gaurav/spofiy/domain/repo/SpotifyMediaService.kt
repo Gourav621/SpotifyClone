@@ -1,13 +1,14 @@
-package com.gaurav.spofiy
+package com.gaurav.spofiy.domain.repo
 
 import android.app.PendingIntent
 import android.content.Intent
 import androidx.annotation.OptIn
 import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
+import androidx.media3.session.DefaultMediaNotificationProvider
 import androidx.media3.session.MediaSession
 import androidx.media3.session.MediaSessionService
-import com.gaurav.spofiy.domain.repo.MusicPlayerManager
+import com.gaurav.spofiy.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -23,24 +24,26 @@ class SpotifyMediaService : MediaSessionService() {
     override fun onCreate() {
         super.onCreate()
 
-        // 1. Create a PendingIntent to open the app (MainActivity) when the notification is clicked
         val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
         }
+
         val pendingIntent = PendingIntent.getActivity(
-            this, 0, intent,
+            this,
+            0,
+            intent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
-        // 2. Build the MediaSession and link it to the ExoPlayer
-        // We set the session activity so the system knows which activity to open from the lock screen
         mediaSession = MediaSession.Builder(this, playerManager.exoPlayer)
             .setSessionActivity(pendingIntent)
-            .setCallback(object : MediaSession.Callback {})
             .build()
-        
-        // Note: In Media3, MediaSessionService automatically handles startForeground and 
-        // notification display when playback starts. We don't need manual startForeground here.
+
+        setMediaNotificationProvider(
+            DefaultMediaNotificationProvider.Builder(this)
+
+                .build()
+        )
     }
 
     // Required: Return the session so the system can show controls
