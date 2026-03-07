@@ -1,4 +1,4 @@
-package com.gaurav.spofiy
+package com.gaurav.spofiy.domain.repo
 
 import android.app.PendingIntent
 import android.content.Intent
@@ -8,7 +8,7 @@ import androidx.media3.common.util.UnstableApi
 import androidx.media3.session.DefaultMediaNotificationProvider
 import androidx.media3.session.MediaSession
 import androidx.media3.session.MediaSessionService
-import com.gaurav.spofiy.domain.repo.MusicPlayerManager
+import com.gaurav.spofiy.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
