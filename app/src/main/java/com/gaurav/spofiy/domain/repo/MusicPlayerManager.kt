@@ -15,7 +15,7 @@ import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.datasource.RawResourceDataSource
 import androidx.media3.exoplayer.ExoPlayer
-import com.gaurav.spofiy.SpotifyMediaService
+import com.gaurav.spofiy.domain.repo.SpotifyMediaService
 import com.gaurav.spofiy.domain.model.Track
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
@@ -43,14 +43,13 @@ class MusicPlayerManager @Inject constructor( @ApplicationContext context: Conte
 
     @OptIn(UnstableApi::class)
     fun play(context: Context,track: Track) {
-startServiceIfNeeded(context = context)
+
         val mediaItemBuilder = MediaItem.Builder()
             .setMediaMetadata(
                 MediaMetadata.Builder()
                     .setTitle(track.name)
                     .setArtist(track.artistName)
-                    .setArtworkUri(Uri.parse(track.imageUrl))
-                    .build()
+                    .setArtworkUri(track.imageUrl?.let { Uri.parse(it) })  .build()
             )
 
         when {
@@ -70,7 +69,7 @@ startServiceIfNeeded(context = context)
         exoPlayer.clearMediaItems()
         exoPlayer.setMediaItem(mediaItemBuilder.build())
         exoPlayer.prepare()
-        exoPlayer.playWhenReady=true
+        exoPlayer.play()
     }
     init {
         exoPlayer.addListener(object : Player.Listener {
@@ -137,13 +136,10 @@ startServiceIfNeeded(context = context)
         return exoPlayer.currentPosition
     }
 
+
     fun seekTo(position: Long) {
         val duration = getDuration()
-        if (duration != null) {
-            exoPlayer.seekTo(position.coerceIn(0L, duration))
-        } else {
-            exoPlayer.seekTo(position)
-        }
+        exoPlayer.seekTo(position.coerceIn(0L, duration))
     }
     fun startServiceIfNeeded(context: Context) {
         val intent = Intent(context, SpotifyMediaService::class.java)

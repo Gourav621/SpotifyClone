@@ -30,7 +30,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.gaurav.spofiy.R
-import com.gaurav.spofiy.SpotifyViewModel
+import com.gaurav.spofiy.presentation.viewmodel.SpotifyViewModel
 import com.gaurav.spofiy.data.network.AuthState
 
 import com.gaurav.spofiy.domain.model.User

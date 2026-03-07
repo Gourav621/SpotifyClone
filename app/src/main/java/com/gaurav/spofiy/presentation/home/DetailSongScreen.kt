@@ -29,7 +29,7 @@ import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
 import coil3.request.allowHardware
 import coil3.request.crossfade
-import com.gaurav.spofiy.SpotifyViewModel
+import com.gaurav.spofiy.presentation.viewmodel.SpotifyViewModel
 import com.gaurav.spofiy.domain.model.Track
 
 

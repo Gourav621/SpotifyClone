@@ -31,7 +31,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import coil3.compose.AsyncImage
 import com.gaurav.spofiy.R
-import com.gaurav.spofiy.SpotifyViewModel
+import com.gaurav.spofiy.presentation.viewmodel.SpotifyViewModel
 import com.gaurav.spofiy.presentation.navigation.Routes
 import com.gaurav.spofiy.presentation.utils.MiniPlayer
 
